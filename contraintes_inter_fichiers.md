@@ -7,4 +7,5 @@ de noms de fonction et de classes, et de modules. Enjoy !
 ---------------------------------------------------------
 
 - Memory:
-	+doit comporter une fonction recognize(elem) (type de elem au choix) qui a elem renvoie le nom du statut associé ainsi qu'une description de l'effet si necessaire.
+	+ doit comporter une fonction recognize(elem) (type de elem au choix) qui a elem renvoie le nom du statut associé ainsi qu'une description de l'effet si necessaire.
+
