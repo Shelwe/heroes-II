@@ -18,7 +18,7 @@ class perso():
 	def liststatus(self):
 		return [memory.recognize(self.sta[i]) for i in self.sta]
 
-	def create_temp_copy(self): #Note : penser à une façon efficace d'indentifier une copie de l'original, probablement en standardisant le nom des copies crées.
+	def create_temp_copy(self): #Note : penser à une façon efficace d'indentifier une copie de l'original, probablement en standardisant le nom des copies crees.
 		return perso(ad=self.ad, ap=self.ap, armor=self.armor, MR=self.MR, self.HPmax, Mana=self.Mana, self.ag, status=self.sta)
 		
 
@@ -44,14 +44,22 @@ class current_perso(perso):
 
 	#fonction un peu longuette dans le but de simplifier après: la longue liste d'elem par default permettra d'ecrire joueurcurr.modif_carac(Mana=-10), sans se soucier du nom de la fonction.
 
-	def modif_carac(self, ad=0, ap=0, armor=0, MR=0, HP=0, Mana=0, Energy=0, agility=0):
-		self.adcurrent+=ad
+        def modif_carac(self, ad=0, ap=0, armor=0, MR=0, HP=0, Mana=0, Energy=0, agility=0):
+                self.adcurrent+=ad
                 self.apcurrent+=ap
                 self.armorcurrent+=armor
                 self.MRcurrent+=MR
-                self.HPcurrent+=HP if self.HPcurrent+HP<0) else raise Deces
-                self.Manacurrent+=Mana if self.Manacurrent+Mana<0) else raise NoMana
-                self.Encurrent+=Energy if self.currentHP+HP<0) else raise NoEnergy
-                self.agcurrent+=agility		
-
+                if (self.HPcurrent+HP<0):
+                        self.HPcurrent+=HP
+                else:
+                        raise Deces
+                if self.Manacurrent+Mana<0:
+                        self.Manacurrent+=Mana  
+                else:
+                        raise NoMana
+                if self.currentHP+HP<0:
+                        self.Encurrent+=Energy  
+                else: 
+                        raise NoEnergy
+                self.agcurrent+=agility
 		
